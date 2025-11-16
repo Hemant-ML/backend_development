@@ -6,6 +6,10 @@ fn main() {
     take_ownership_clone(s1.clone());
     println!("s1: {}", s1);
     println!("s1: {}", s1); // s1 is not valid here, because it was moved to the function
+    let s2:String = add_to_string(s1);
+    println!("s2: {}", s2);
+
+
 
     // let s2:String = s1.clone();
     // println!("s1: {}", s1);
@@ -25,4 +29,9 @@ fn take_ownership(s:String) {
 
 fn take_ownership_clone(s:String) {
     println!("s: {}", s);
+}
+
+fn add_to_string(mut s:String) -> String {
+    s.push_str(" is awesome");
+    s
 }
